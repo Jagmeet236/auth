@@ -121,26 +121,4 @@ enum QualificationLevel {
   final String qualificationName;
 }
 
-enum Address {
-  mainStreet,
-  anotherStreet,
-}
-
-class AddressDetails {
-  final String mainStreet;
-  final String nearbyLocation;
-  final String pincode;
-
-  AddressDetails(this.mainStreet, this.nearbyLocation, this.pincode);
-}
-
-extension AddressDetailsExtension on Address {
-  AddressDetails get details {
-    switch (this) {
-      case Address.mainStreet:
-        return AddressDetails("Main Street", "Nearby Location", "10001");
-      case Address.anotherStreet:
-        return AddressDetails("Another Street", "Nearby Place", "20002");
-    }
-  }
-}
+enum ProfileType { company, user }

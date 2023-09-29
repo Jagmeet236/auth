@@ -26,7 +26,7 @@ class UserJobProfile extends Profile {
   final String? storePath;
 
   UserJobProfile({
-    required String uid,
+    required ProfileType type,
     required this.highestQualification,
     required this.interestCategories,
     required this.yearsOfExperience,
@@ -35,9 +35,9 @@ class UserJobProfile extends Profile {
     required this.userDocuments,
     required this.createdAt,
     this.storePath,
-  }) : super(uid: uid);
+  }) : super(type: type);
   UserJobProfile copyWith({
-    String? uid,
+    ProfileType? type,
     QualificationLevel? highestQualification,
     List<String>? interestCategories,
     String? yearsOfExperience,
@@ -48,7 +48,7 @@ class UserJobProfile extends Profile {
     String? Function()? storePath,
   }) {
     return UserJobProfile(
-      uid: uid ?? this.uid,
+      type: type ?? this.type,
       highestQualification: highestQualification ?? this.highestQualification,
       interestCategories: interestCategories ?? this.interestCategories,
       yearsOfExperience: yearsOfExperience ?? this.yearsOfExperience,
@@ -71,8 +71,8 @@ class UserJobProfile extends Profile {
   /// Convert To [UserJobProfile] From Json
   /// `path` : [String?] is the path of the UserDataProfile doc in Firebase
   factory UserJobProfile.fromJson(Map<String, dynamic> json, {String? path}) =>
-      _$UserProfileDataFromJson(json).copyWithPath(path: path);
+      _$UserJobProfileFromJson(json).copyWithPath(path: path);
 
   /// Convert To Json Format
-  Map<String, dynamic> toJson() => _$UserProfileDataToJson(this);
+  Map<String, dynamic> toJson() => _$UserJobProfileToJson(this);
 }

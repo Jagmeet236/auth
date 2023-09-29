@@ -8,7 +8,7 @@ part of 'company_profile_data.dart';
 
 CompanyProfileData _$CompanyProfileDataFromJson(Map<String, dynamic> json) =>
     CompanyProfileData(
-      uid: json['uid'] as String,
+      type: $enumDecode(_$ProfileTypeEnumMap, json['type']),
       legalName: json['legalName'] as String,
       logoUrl: json['logoUrl'] as String,
       state: $enumDecode(_$StateEnumMap, json['state']),
@@ -23,7 +23,7 @@ CompanyProfileData _$CompanyProfileDataFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$CompanyProfileDataToJson(CompanyProfileData instance) =>
     <String, dynamic>{
-      'uid': instance.uid,
+      'type': _$ProfileTypeEnumMap[instance.type]!,
       'legalName': instance.legalName,
       'logoUrl': instance.logoUrl,
       'state': _$StateEnumMap[instance.state]!,
@@ -35,6 +35,11 @@ Map<String, dynamic> _$CompanyProfileDataToJson(CompanyProfileData instance) =>
       'updatedAt': instance.updatedAt.toIso8601String(),
       'storePath': instance.storePath,
     };
+
+const _$ProfileTypeEnumMap = {
+  ProfileType.company: 'company',
+  ProfileType.user: 'user',
+};
 
 const _$StateEnumMap = {
   State.jammuandkashmir: 'jammuandkashmir',

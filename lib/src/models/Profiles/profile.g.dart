@@ -7,9 +7,14 @@ part of 'profile.dart';
 // **************************************************************************
 
 Profile _$ProfileFromJson(Map<String, dynamic> json) => Profile(
-      uid: json['uid'] as String,
+      type: $enumDecode(_$ProfileTypeEnumMap, json['type']),
     );
 
 Map<String, dynamic> _$ProfileToJson(Profile instance) => <String, dynamic>{
-      'uid': instance.uid,
+      'type': _$ProfileTypeEnumMap[instance.type]!,
     };
+
+const _$ProfileTypeEnumMap = {
+  ProfileType.company: 'company',
+  ProfileType.user: 'user',
+};

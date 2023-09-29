@@ -8,7 +8,7 @@ part of 'user_job_profile.dart';
 
 UserJobProfile _$UserJobProfileFromJson(Map<String, dynamic> json) =>
     UserJobProfile(
-      uid: json['uid'] as String,
+      type: $enumDecode(_$ProfileTypeEnumMap, json['type']),
       highestQualification: $enumDecode(
           _$QualificationLevelEnumMap, json['highestQualification']),
       interestCategories: (json['interestCategories'] as List<dynamic>)
@@ -30,7 +30,7 @@ UserJobProfile _$UserJobProfileFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$UserJobProfileToJson(UserJobProfile instance) =>
     <String, dynamic>{
-      'uid': instance.uid,
+      'type': _$ProfileTypeEnumMap[instance.type]!,
       'highestQualification':
           _$QualificationLevelEnumMap[instance.highestQualification]!,
       'interestCategories': instance.interestCategories,
@@ -41,6 +41,11 @@ Map<String, dynamic> _$UserJobProfileToJson(UserJobProfile instance) =>
       'createdAt': instance.createdAt.toIso8601String(),
       'storePath': instance.storePath,
     };
+
+const _$ProfileTypeEnumMap = {
+  ProfileType.company: 'company',
+  ProfileType.user: 'user',
+};
 
 const _$QualificationLevelEnumMap = {
   QualificationLevel.matric: 'matric',

@@ -29,7 +29,7 @@ class CompanyProfileData extends Profile {
   final String? storePath;
 
   CompanyProfileData(
-      {required String uid,
+      {required ProfileType type,
       required this.legalName,
       required this.logoUrl,
       required this.state,
@@ -40,10 +40,10 @@ class CompanyProfileData extends Profile {
       required this.website,
       required this.updatedAt,
       this.storePath})
-      : super(uid: uid);
+      : super(type: type);
 
   CompanyProfileData copyWith({
-    String? uid,
+    ProfileType? type,
     String? legalName,
     String? logoUrl,
     State? state,
@@ -56,7 +56,7 @@ class CompanyProfileData extends Profile {
     String? Function()? storePath,
   }) {
     return CompanyProfileData(
-      uid: uid ?? this.uid,
+      type: type ?? this.type,
       legalName: legalName ?? this.legalName,
       logoUrl: logoUrl ?? this.logoUrl,
       state: state ?? this.state,
