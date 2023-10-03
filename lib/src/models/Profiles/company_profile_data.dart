@@ -1,4 +1,4 @@
-import 'package:auth/src/constants/enums.dart';
+import 'package:auth/src/constants/constants.dart';
 import 'package:auth/src/models/Profiles/profile.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -29,7 +29,8 @@ class CompanyProfileData extends Profile {
   final String? storePath;
 
   CompanyProfileData(
-      {required ProfileType type,
+      {required super.type,
+      required super.uid,
       required this.legalName,
       required this.logoUrl,
       required this.state,
@@ -39,8 +40,7 @@ class CompanyProfileData extends Profile {
       required this.emailId,
       required this.website,
       required this.updatedAt,
-      this.storePath})
-      : super(type: type);
+      this.storePath});
 
   CompanyProfileData copyWith({
     ProfileType? type,
@@ -56,6 +56,7 @@ class CompanyProfileData extends Profile {
     String? Function()? storePath,
   }) {
     return CompanyProfileData(
+      uid: uid,
       type: type ?? this.type,
       legalName: legalName ?? this.legalName,
       logoUrl: logoUrl ?? this.logoUrl,

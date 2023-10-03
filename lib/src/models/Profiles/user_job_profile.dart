@@ -1,7 +1,7 @@
 import 'package:auth/src/models/Profiles/profile.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../constants/enums.dart';
+import 'package:auth/src/constants/constants.dart';
 
 part 'user_job_profile.g.dart';
 
@@ -26,7 +26,8 @@ class UserJobProfile extends Profile {
   final String? storePath;
 
   UserJobProfile({
-    required ProfileType type,
+    required super.type,
+    required super.uid,
     required this.highestQualification,
     required this.interestCategories,
     required this.yearsOfExperience,
@@ -35,7 +36,7 @@ class UserJobProfile extends Profile {
     required this.userDocuments,
     required this.createdAt,
     this.storePath,
-  }) : super(type: type);
+  });
   UserJobProfile copyWith({
     ProfileType? type,
     QualificationLevel? highestQualification,
@@ -48,6 +49,7 @@ class UserJobProfile extends Profile {
     String? Function()? storePath,
   }) {
     return UserJobProfile(
+      uid: uid,
       type: type ?? this.type,
       highestQualification: highestQualification ?? this.highestQualification,
       interestCategories: interestCategories ?? this.interestCategories,
@@ -74,5 +76,6 @@ class UserJobProfile extends Profile {
       _$UserJobProfileFromJson(json).copyWithPath(path: path);
 
   /// Convert To Json Format
+  @override
   Map<String, dynamic> toJson() => _$UserJobProfileToJson(this);
 }

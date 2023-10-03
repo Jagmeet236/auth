@@ -89,9 +89,9 @@ enum JobCategory {
 enum UserType {
   verficationAgency,
 
-  jobSeeker,
+  worker,
 
-  jobProvider,
+  company,
 
   admin,
 

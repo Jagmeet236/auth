@@ -63,3 +63,20 @@ class AuthException implements Exception {
     return errorMessage;
   }
 }
+
+/// A custom exception class for handling specific exceptions in the application.
+/// This class implements the Dart `Exception` interface, allowing it to be thrown
+/// and caught like other exceptions in Dart.
+
+class CustomException implements Exception {
+  final String? message;
+  final String? errorCode;
+
+  CustomException({this.message, this.errorCode});
+
+  bool get hasCode => errorCode != null;
+  bool get hasMessage => message != null;
+
+  @override
+  String toString() => message ?? '';
+}

@@ -1,10 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../constants/enums.dart';
+import 'package:auth/src/constants/constants.dart';
 part 'user_profile.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class UserProfile {
+  final String? uid;
+
   final String name;
 
   final String phoneNumber;
@@ -22,7 +24,8 @@ class UserProfile {
   final String? storePath;
 
   UserProfile(
-      {required this.name,
+      {required this.uid,
+      required this.name,
       required this.phoneNumber,
       required this.age,
       required this.gender,
@@ -32,6 +35,7 @@ class UserProfile {
       this.storePath});
 
   UserProfile copyWith({
+    String? uid,
     String? name,
     String? phoneNumber,
     String? age,
@@ -42,6 +46,7 @@ class UserProfile {
     String? Function()? storePath,
   }) {
     return UserProfile(
+      uid: uid ?? this.uid,
       name: name ?? this.name,
       phoneNumber: phoneNumber ?? this.phoneNumber,
       age: age ?? this.age,

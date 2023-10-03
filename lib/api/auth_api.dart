@@ -1,11 +1,10 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'constants/enums.dart';
-import 'exceptions/exceptions.dart';
+import '../src/constants/enums.dart';
+import '../src/exceptions/exceptions.dart';
 
 class AuthApi {
   AuthApi({

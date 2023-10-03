@@ -7,6 +7,7 @@ part of 'user_info.dart';
 // **************************************************************************
 
 UserInfo _$UserInfoFromJson(Map<String, dynamic> json) => UserInfo(
+      uid: json['uid'] as String,
       userType: $enumDecode(_$UserTypeEnumMap, json['userType']),
       verificationStatus:
           $enumDecode(_$VerficationStatusEnumMap, json['verificationStatus']),
@@ -16,6 +17,7 @@ UserInfo _$UserInfoFromJson(Map<String, dynamic> json) => UserInfo(
     );
 
 Map<String, dynamic> _$UserInfoToJson(UserInfo instance) => <String, dynamic>{
+      'uid': instance.uid,
       'userType': _$UserTypeEnumMap[instance.userType]!,
       'verificationStatus':
           _$VerficationStatusEnumMap[instance.verificationStatus]!,
@@ -26,8 +28,8 @@ Map<String, dynamic> _$UserInfoToJson(UserInfo instance) => <String, dynamic>{
 
 const _$UserTypeEnumMap = {
   UserType.verficationAgency: 'verficationAgency',
-  UserType.jobSeeker: 'jobSeeker',
-  UserType.jobProvider: 'jobProvider',
+  UserType.worker: 'worker',
+  UserType.company: 'company',
   UserType.admin: 'admin',
   UserType.staff: 'staff',
 };

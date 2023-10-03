@@ -9,6 +9,7 @@ part of 'company_profile_data.dart';
 CompanyProfileData _$CompanyProfileDataFromJson(Map<String, dynamic> json) =>
     CompanyProfileData(
       type: $enumDecode(_$ProfileTypeEnumMap, json['type']),
+      uid: json['uid'] as String,
       legalName: json['legalName'] as String,
       logoUrl: json['logoUrl'] as String,
       state: $enumDecode(_$StateEnumMap, json['state']),
@@ -24,6 +25,7 @@ CompanyProfileData _$CompanyProfileDataFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$CompanyProfileDataToJson(CompanyProfileData instance) =>
     <String, dynamic>{
       'type': _$ProfileTypeEnumMap[instance.type]!,
+      'uid': instance.uid,
       'legalName': instance.legalName,
       'logoUrl': instance.logoUrl,
       'state': _$StateEnumMap[instance.state]!,
